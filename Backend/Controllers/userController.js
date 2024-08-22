@@ -4,7 +4,6 @@ require("dotenv").config("../.env");
 const crypto = require("crypto");
 const User = require("../Modals/userModal");
 const userAttendance = require("../Modals/userAttendanceModal");
-const { default: axios } = require("axios");
 const reports = require("../Modals/reports");
 
 const transporter = nodeMalier.createTransport({
