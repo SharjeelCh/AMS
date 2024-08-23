@@ -8,12 +8,7 @@
  "routes": [
   {
    "src": "/(.*)",
-   "dest": "/index.html",
-   "status": 200,
-   "headers": {
-    "cache-control": "s-maxage=1, stale-while-revalidate"
-   }
-   
+   "dest": "/index.html"
   }
  ]
 }
