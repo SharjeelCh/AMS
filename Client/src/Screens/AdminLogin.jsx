@@ -37,9 +37,13 @@ export default function AdminLogin() {
     }
    );
    setUser({
+    user_id: "",
     name: response.data.data.name,
     email: values.email,
+    first_name: "",
+    last_name: "",
     isAdmin: true,
+    profile_image: "",
    });
    message.success("Login Successful");
    navigate("/");
