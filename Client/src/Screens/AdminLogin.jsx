@@ -29,7 +29,7 @@ export default function AdminLogin() {
  const onFinish = async (values) => {
   try {
    const response = await axios.post(
-    `http://localhost:5002/api/admin/adminLogin/`,
+    `https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/admin/adminLogin/`,
     {
      email: values.email,
      password: values.password,

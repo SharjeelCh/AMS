@@ -9,7 +9,7 @@ const LeaveApproval = () => {
   const fetchPendingLeaves = async () => {
    try {
     const response = await axios.get(
-     "http://localhost:5002/api/admin/pendingLeaves"
+     "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/admin/pendingLeaves"
     );
     // Log the data to understand the structure
     console.log(response.data);
@@ -42,7 +42,7 @@ const LeaveApproval = () => {
    }?`,
    onOk: async () => {
     try {
-     await axios.post("http://localhost:5002/api/admin/leaveApproval", {
+     await axios.post("https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/admin/leaveApproval", {
       userId: record.userId,
       leaveId: record.leaveId,
       action: status,

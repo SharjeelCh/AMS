@@ -16,7 +16,7 @@ const Reports = () => {
    setLoading(true);
    try {
     const response = await axios.get(
-     "http://localhost:5002/api/admin/userInfo"
+     "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/admin/userInfo"
     );
     const fetchedData = response.data;
     console.log("fetchedData:", fetchedData);
@@ -111,7 +111,7 @@ const Reports = () => {
   try {
    setloading(true);
    const response = await axios.post(
-    "http://localhost:5002/api/admin/sendReports",
+    "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/admin/sendReports",
     students
    );
    message.success(response.data.message);

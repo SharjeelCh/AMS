@@ -13,13 +13,13 @@ app.use(express.json());
 
 const corsOptions = {
  origin: [
-  "http://localhost:5173",
-  "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app", // Allow Vercel domain
+  "http://localhost:5173", // Local development
+  "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app", // Vercel domain
  ],
- methods: ["GET", "POST", "PUT", "DELETE"],
+ methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+ allowedHeaders: ["Content-Type", "Authorization"], // Include any custom headers required
  credentials: true,
 };
-
 app.use(cors(corsOptions));
 
 app.use(
