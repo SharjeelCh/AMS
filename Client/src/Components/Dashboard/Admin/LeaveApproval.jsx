@@ -107,7 +107,7 @@ const LeaveApproval = () => {
  ];
 
  return (
-  <div style={{ padding: 24, maxWidth: "100%" }}>
+  <div style={{ maxWidth: "100%" }}>
    <Table
     columns={columns}
     dataSource={data}

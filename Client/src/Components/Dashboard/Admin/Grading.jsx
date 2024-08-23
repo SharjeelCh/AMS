@@ -96,7 +96,7 @@ const GradingSystem = () => {
    title: "Attendance Threshold",
    dataIndex: "threshold",
    key: "threshold",
-   responsive: ["md"], // Only show on medium screens and above
+   responsive: ["md"], 
   },
   {
    title: "Grade",
@@ -120,12 +120,12 @@ const GradingSystem = () => {
  ];
 
  return (
-  <div style={{ padding: 24 }}>
+  <div>
    <Row justify="center">
     <Col xs={24} md={20} lg={16}>
      <Button
       type="primary"
-      style={{ marginBottom: 16, width: "100%" }} // Full width on small screens
+      style={{ marginBottom: 16, width: "100%" }}
       onClick={handleAdd}
      >
       Add Grading Criteria
@@ -134,8 +134,8 @@ const GradingSystem = () => {
       columns={columns}
       dataSource={data}
       pagination={{ pageSize: 5 }}
-      scroll={{ x: "100%" }} // Enable horizontal scrolling if needed
-      rowKey="_id" // Ensure unique key for each row
+      scroll={{ x: "100%" }} 
+      rowKey="_id" 
      />
     </Col>
    </Row>

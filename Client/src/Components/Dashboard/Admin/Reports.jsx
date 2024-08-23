@@ -170,7 +170,7 @@ const Reports = () => {
  ];
 
  return (
-  <div style={{ padding: 24 }}>
+  <div>
    <div
     style={{
      display: "flex",
