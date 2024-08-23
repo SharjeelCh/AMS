@@ -13,7 +13,12 @@ import {
 } from "@ant-design/icons";
 import { FaLeaf } from "react-icons/fa6";
 import { useMediaQuery, useTheme } from "@mui/material";
-import { NotificationsActiveOutlined } from "@mui/icons-material";
+import {
+ ApprovalOutlined,
+ GradingOutlined,
+ NotificationsActiveOutlined,
+} from "@mui/icons-material";
+import logo from "../../../assets/layout.png";
 
 const SidebarAdmin = ({ setSelectedMenuItem }) => {
  const theme = useTheme();
@@ -23,7 +28,7 @@ const SidebarAdmin = ({ setSelectedMenuItem }) => {
   <>
    <Flex align="center" justify="center" className="side">
     <div className="logoo">
-     <FaLeaf />
+     <img src={logo} alt="AMS Logo" style={{ width: "40px", height: "40px" }} />
     </div>
     <Menu
      defaultSelectedKeys={["1"]}
@@ -37,20 +42,20 @@ const SidebarAdmin = ({ setSelectedMenuItem }) => {
       },
       {
        key: "3",
-       icon: <InsuranceOutlined />,
+       icon: <FileAddOutlined />,
        label: "Reports",
       },
 
       {
        key: "4",
-       icon: <NotificationsActiveOutlined />,
+       icon: <ApprovalOutlined />,
        label: "Leave Approval",
       },
       {
-        key: "5",
-        icon: <NotificationsActiveOutlined />,
-        label: "Grading System",
-       },
+       key: "5",
+       icon: <GradingOutlined />,
+       label: "Grading System",
+      },
       {
        key: "6",
        icon: <LogoutOutlined />,

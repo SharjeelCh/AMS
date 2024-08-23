@@ -14,7 +14,15 @@ const CustomHeader = () => {
     Welcome Back {name}
    </Typography.Title>
    <Flex align="flex-end">
-    <Avatar icon={<UserOutlined color="white" />} size="large" />
+    {user?.profile_image === "" ? (
+     <Avatar icon={<UserOutlined color="white" />} size="large" />
+    ) : (
+     <Avatar
+      src={user?.profile_image}
+      style={{ borderWidth: 1, borderColor: "wheat" }}
+      size="large"
+     />
+    )}
    </Flex>
   </Flex>
  );

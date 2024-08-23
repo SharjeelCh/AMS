@@ -3,6 +3,7 @@ import { Form, Input, Button, Upload, Avatar, message } from "antd";
 import { UploadOutlined, UserOutlined } from "@ant-design/icons";
 import useStore from "../../../createStore";
 import axios from "axios";
+import Compressor from "compressorjs";
 
 const UserProfile = () => {
  const { user, setUser } = useStore();
@@ -10,11 +11,12 @@ const UserProfile = () => {
  const first_name = user?.first_name || "Guest";
  const last_name = user?.last_name || "Guest";
  const email = user?.email || "Guest";
- const profile_image = user?.profile_image || "Guest";
+ const profile_image = user?.profile_image || "";
 
  const [imageUrl, setImageUrl] = useState(user ? profile_image : null);
  const [isEditing, setIsEditing] = useState(false);
  const [imageBase64, setImageBase64] = useState(null);
+ const [imageSize, setImageSize] = useState(null);
 
  const onFinish = async (values) => {
   try {
@@ -48,9 +50,39 @@ const UserProfile = () => {
  const handleUpload = (info) => {
   const file = info.file.originFileObj || info.file;
   if (file) {
-   getBase64(file, (url) => {
-    setImageUrl(url);
-    setImageBase64(url);
+   const fileSizeMB = file.size / 1024 / 1024;
+   setImageSize(fileSizeMB.toFixed(2));
+
+   if (fileSizeMB > 5) {
+    message.error(
+     "Image size exceeds 5MB limit. Please upload a smaller image."
+    );
+    setImageUrl(null);
+    setImageBase64(null);
+    return;
+   }
+
+   new Compressor(file, {
+    quality: 0.38, 
+    maxWidth: 80, 
+    maxHeight: 80, 
+    success(result) {
+     if (result.size > 12 * 1024) {
+      message.warning(
+       "The image is still larger than 12KB. Further compression is needed."
+      );
+     }
+     setImageSize((result.size / 1024).toFixed(2) + "KB");
+
+     getBase64(result, (url) => {
+      setImageUrl(url);
+      setImageBase64(url);
+     });
+    },
+    error(err) {
+     console.error(err.message);
+     message.error("Image compression failed");
+    },
    });
   }
  };
@@ -99,6 +131,11 @@ const UserProfile = () => {
       Upload Profile Picture
      </Button>
     </Upload>
+    {imageSize && (
+     <div style={{ marginTop: "10px" }}>
+      <strong>Image size:</strong> {imageSize}
+     </div>
+    )}
    </div>
    <Form
     layout="vertical"

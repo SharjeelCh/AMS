@@ -1,20 +1,14 @@
-import { Flex, Menu, theme } from "antd";
+import { Flex, Menu } from "antd";
 import React from "react";
 import {
  UserOutlined,
- ProfileOutlined,
- LogoutOutlined,
- OrderedListOutlined,
  CarryOutOutlined,
- FileAddOutlined,
- SignatureOutlined,
  InsuranceOutlined,
- BookOutlined,
+ LogoutOutlined,
 } from "@ant-design/icons";
-import { FaLeaf } from "react-icons/fa6";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { NotificationsActiveOutlined } from "@mui/icons-material";
-
+import logo from "../../../assets/layout.png";
 const Sidebar = ({ setSelectedMenuItem }) => {
  const theme = useTheme();
  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -23,7 +17,7 @@ const Sidebar = ({ setSelectedMenuItem }) => {
   <>
    <Flex align="center" justify="center" className="side">
     <div className="logoo">
-     <FaLeaf />
+     <img src={logo} alt="AMS Logo" style={{ width: "40px", height: "40px" }} />
     </div>
     <Menu
      defaultSelectedKeys={["1"]}
@@ -38,14 +32,13 @@ const Sidebar = ({ setSelectedMenuItem }) => {
       {
        key: "2",
        icon: <CarryOutOutlined />,
-       label: "Mark Attendace",
+       label: "Mark Attendance",
       },
       {
        key: "3",
        icon: <InsuranceOutlined />,
        label: "Attendance Record",
       },
-
       {
        key: "4",
        icon: <NotificationsActiveOutlined />,
