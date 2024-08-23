@@ -25,7 +25,7 @@ export default function SignUp() {
  const onFinish = async (values) => {
   try {
    const response = await axios.post(
-    "http://localhost:5002/api/users/signup/",
+    "https://ams-omega.vercel.app/api/users/signup/",
     {
      first_name: values.first_name,
      last_name: values.last_name,
@@ -33,7 +33,7 @@ export default function SignUp() {
      password: values.password,
     }
    );
-   console.log(response.data);
+   
 
    message.success("Verification email sent! Please check your inbox.");
 

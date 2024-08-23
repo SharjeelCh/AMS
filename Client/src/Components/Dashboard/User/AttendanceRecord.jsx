@@ -63,7 +63,7 @@ const AttendanceRecord = () => {
    try {
     setLoading(true);
     const response = await axios.get(
-     `http://localhost:5002/api/users/getAttendanceState/`,
+     `https://ams-omega.vercel.app/api/users/getAttendanceState/`,
      {
       params: {
        user_id: user.user_id,
@@ -77,7 +77,7 @@ const AttendanceRecord = () => {
      state: record.state,
     }));
     setLoading(false);
-    console.log(data);
+    
    } catch (error) {
     console.error("Error fetching attendance state:", error);
     setLoading(false);

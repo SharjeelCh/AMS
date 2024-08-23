@@ -16,10 +16,10 @@ const Reports = () => {
    setLoading(true);
    try {
     const response = await axios.get(
-     "http://localhost:5002/api/admin/userInfo"
+     "https://ams-omega.vercel.app/api/admin/userInfo"
     );
     const fetchedData = response.data;
-    console.log("fetchedData:", fetchedData);
+    
 
     const studentsData = fetchedData.map((student) => {
      const userData = student.attendance;
@@ -43,7 +43,7 @@ const Reports = () => {
     });
 
     setStudents(studentsData);
-    console.log("data:", studentsData);
+    
    } catch (error) {
     console.error("Error fetching data:", error);
    } finally {
@@ -111,7 +111,7 @@ const Reports = () => {
   try {
    setloading(true);
    const response = await axios.post(
-    "http://localhost:5002/api/admin/sendReports",
+    "https://ams-omega.vercel.app/api/admin/sendReports",
     students
    );
    message.success(response.data.message);

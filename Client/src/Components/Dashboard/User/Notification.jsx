@@ -25,7 +25,7 @@ const Notification = () => {
    try {
     setLoading(true);
     const response = await axios.get(
-     `http://localhost:5002/api/users/getReports/${user.user_id}`
+     `https://ams-omega.vercel.app/api/users/getReports/${user.user_id}`
     );
     const newNotifications = response.data.data.map((item) => ({
      title: "Attendance Update",
@@ -35,7 +35,7 @@ const Notification = () => {
     }));
 
     setNotifications(newNotifications);
-    console.log("notifications:", response.data.data);
+    
    } catch (error) {
     if (error.response && error.response.data) {
      message.error(error.response.data.message);

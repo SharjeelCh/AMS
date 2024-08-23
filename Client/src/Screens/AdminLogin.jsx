@@ -25,11 +25,11 @@ export default function AdminLogin() {
  const screens = useBreakpoint();
  const navigate = useNavigate();
  const { user, setUser } = useStore();
- console.log(user ? user : "No user");
+ 
  const onFinish = async (values) => {
   try {
    const response = await axios.post(
-    `http://localhost:5002/api/admin/adminLogin/`,
+    `https://ams-omega.vercel.app/api/admin/adminLogin/`,
     {
      email: values.email,
      password: values.password,

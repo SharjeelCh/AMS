@@ -16,7 +16,7 @@ const UserProfile = () => {
  const onFinish = async (values) => {
   try {
    const response = await axios.put(
-    `http://localhost:5002/api/users/updateProfile/${user.email}/`,
+    `https://ams-omega.vercel.app/api/users/updateProfile/${user.email}/`,
     {
      first_name: values.firstName,
      last_name: values.lastName,

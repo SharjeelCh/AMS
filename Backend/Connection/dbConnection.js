@@ -7,7 +7,7 @@ const connectDB = async () => {
   const connect = await mongoose.connect(string, {
     
   });
-  console.log(
+  
    `MongoDB connected\n`,
    connect.connection.host,
    `\n`,

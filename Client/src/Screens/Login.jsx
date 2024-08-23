@@ -20,7 +20,7 @@ export default function Login() {
 
  const onFinish = async (values) => {
   try {
-   const response = await axios.post(`https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/users/Login/`, {
+   const response = await axios.post(`https://ams-omega.vercel.app/api/users/Login/`, {
     email: values.email,
     password: values.password,
    });

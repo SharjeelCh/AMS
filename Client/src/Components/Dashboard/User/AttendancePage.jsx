@@ -33,7 +33,7 @@ const AttendancePage = () => {
    try {
     setLoading(true);
     const response = await axios.get(
-     `http://localhost:5002/api/users/getAttendanceState/`,
+     `https://ams-omega.vercel.app/api/users/getAttendanceState/`,
      {
       params: {
        user_id: user.user_id,
@@ -74,7 +74,7 @@ const AttendancePage = () => {
   try {
    setLoading(true);
    const response = await axios.put(
-    `http://localhost:5002/api/users/markAttendance/${user.user_id}`,
+    `https://ams-omega.vercel.app/api/users/markAttendance/${user.user_id}`,
     {
      user_name: `${user.first_name} ${user.last_name}`,
      status: selectedStatus,
@@ -102,7 +102,7 @@ const AttendancePage = () => {
 
  const handleRadioChange = (e) => {
   const selectedStatus = e.target.value;
-  console.log(selectedStatus);
+  
   if (selectedStatus !== "Leave") {
    handleAttendance(selectedStatus);
   } else {
