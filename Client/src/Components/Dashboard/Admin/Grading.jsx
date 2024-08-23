@@ -18,7 +18,7 @@ const GradingSystem = () => {
  const [editingRecord, setEditingRecord] = useState(null);
  const [form] = Form.useForm();
 
- const baseUrl = "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/admin";
+ const baseUrl = "http://localhost:5002/api/admin";
 
  useEffect(() => {
   fetchGradingCriteria();

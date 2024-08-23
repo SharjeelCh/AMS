@@ -11,7 +11,7 @@ const Dashboard = () => {
    setLoading(true);
    try {
     const response = await axios.get(
-     "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/admin/getOverAllInfo"
+     "http://localhost:5002/api/admin/getOverAllInfo"
     );
     setData(response.data);
    } catch (error) {

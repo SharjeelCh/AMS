@@ -33,7 +33,7 @@ const AttendancePage = () => {
    try {
     setLoading(true);
     const response = await axios.get(
-     `https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/users/getAttendanceState/`,
+     `http://localhost:5002/api/users/getAttendanceState/`,
      {
       params: {
        user_id: user.user_id,
@@ -74,7 +74,7 @@ const AttendancePage = () => {
   try {
    setLoading(true);
    const response = await axios.put(
-    `https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/users/markAttendance/${user.user_id}`,
+    `http://localhost:5002/api/users/markAttendance/${user.user_id}`,
     {
      user_name: `${user.first_name} ${user.last_name}`,
      status: selectedStatus,

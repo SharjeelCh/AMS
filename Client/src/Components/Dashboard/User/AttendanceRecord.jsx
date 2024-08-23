@@ -63,7 +63,7 @@ const AttendanceRecord = () => {
    try {
     setLoading(true);
     const response = await axios.get(
-     `https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/users/getAttendanceState/`,
+     `http://localhost:5002/api/users/getAttendanceState/`,
      {
       params: {
        user_id: user.user_id,

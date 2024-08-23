@@ -25,7 +25,7 @@ const Notification = () => {
    try {
     setLoading(true);
     const response = await axios.get(
-     `https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app/api/users/getReports/${user.user_id}`
+     `http://localhost:5002/api/users/getReports/${user.user_id}`
     );
     const newNotifications = response.data.data.map((item) => ({
      title: "Attendance Update",
