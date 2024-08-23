@@ -11,13 +11,16 @@ connectDB();
 const app = express();
 app.use(express.json());
 
-app.use(
- cors({
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
- })
-);
+const corsOptions = {
+ origin: [
+  "http://localhost:5173",
+  "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app", // Allow Vercel domain
+ ],
+ methods: ["GET", "POST", "PUT", "DELETE"],
+ credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(
  "/api/users",
