@@ -23,6 +23,15 @@ function App() {
       <Route path="/AdminLogin" element={<AdminLogin />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/SignUp" element={<SignUp />} />
+      <Route
+       path="*"
+       element={
+        <div style={{ textAlign: "center", marginTop: "10rem" }}>
+         <h1>404</h1>
+         <p>Page Not Found</p>
+        </div>
+       }
+      />
      </>
     )}
    </Routes>
