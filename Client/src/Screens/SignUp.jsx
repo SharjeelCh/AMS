@@ -100,7 +100,7 @@ export default function SignUp() {
 
      <Title style={styles.title}>Sign up</Title>
      <Text style={styles.text}>
-      Join AntBlocks UI! Please fill in your details below to create an account.
+      Welcome to AMS! Please fill in your details below to create an account.
      </Text>
     </div>
     <Form
