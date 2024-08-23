@@ -63,7 +63,7 @@ const AttendanceRecord = () => {
    try {
     setLoading(true);
     const response = await axios.get(
-     `https://ams-omega.vercel.app/api/users/getAttendanceState/`,
+     `https://ams-theta-tawny.vercel.app/api/users/getAttendanceState/`,
      {
       params: {
        user_id: user.user_id,

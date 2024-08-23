@@ -11,7 +11,7 @@ const Dashboard = () => {
    setLoading(true);
    try {
     const response = await axios.get(
-     "https://ams-omega.vercel.app/api/admin/getOverAllInfo"
+     "https://ams-theta-tawny.vercel.app/api/admin/getOverAllInfo"
     );
     setData(response.data);
    } catch (error) {

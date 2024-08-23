@@ -25,7 +25,7 @@ export default function SignUp() {
  const onFinish = async (values) => {
   try {
    const response = await axios.post(
-    "https://ams-omega.vercel.app/api/users/signup/",
+    "https://ams-theta-tawny.vercel.app/api/users/signup/",
     {
      first_name: values.first_name,
      last_name: values.last_name,

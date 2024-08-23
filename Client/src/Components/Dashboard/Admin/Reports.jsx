@@ -16,7 +16,7 @@ const Reports = () => {
    setLoading(true);
    try {
     const response = await axios.get(
-     "https://ams-omega.vercel.app/api/admin/userInfo"
+     "https://ams-theta-tawny.vercel.app/api/admin/userInfo"
     );
     const fetchedData = response.data;
     
@@ -111,7 +111,7 @@ const Reports = () => {
   try {
    setloading(true);
    const response = await axios.post(
-    "https://ams-omega.vercel.app/api/admin/sendReports",
+    "https://ams-theta-tawny.vercel.app/api/admin/sendReports",
     students
    );
    message.success(response.data.message);

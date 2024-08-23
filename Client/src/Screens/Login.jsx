@@ -30,7 +30,7 @@ export default function Login() {
   setLoading(true);
   try {
    const response = await axios.post(
-    `https://ams-omega.vercel.app/api/users/Login/`,
+    `https://ams-theta-tawny.vercel.app/api/users/Login/`,
     {
      email: values.email,
      password: values.password,

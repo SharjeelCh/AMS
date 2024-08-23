@@ -9,9 +9,6 @@ import useStore from "./createStore";
 
 function App() {
  const { user } = useStore();
-
- console.log("User:", user); // Debugging user state
-
  return (
   <Router>
    <Routes>
@@ -28,7 +25,6 @@ function App() {
       <Route path="/SignUp" element={<SignUp />} />
      </>
     )}
-    <Route path="*" element={<Login />} />
    </Routes>
   </Router>
  );
