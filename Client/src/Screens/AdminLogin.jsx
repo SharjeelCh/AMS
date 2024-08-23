@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
  Button,
  Checkbox,
@@ -7,10 +6,10 @@ import {
  Grid,
  Input,
  message,
+ Spin,
  theme,
  Typography,
 } from "antd";
-
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -24,9 +23,11 @@ export default function AdminLogin() {
  const { token } = useToken();
  const screens = useBreakpoint();
  const navigate = useNavigate();
- const { user, setUser } = useStore();
- 
+ const { setUser } = useStore();
+ const [loading, setLoading] = React.useState(false);
+
  const onFinish = async (values) => {
+  setLoading(true);
   try {
    const response = await axios.post(
     `https://ams-omega.vercel.app/api/admin/adminLogin/`,
@@ -48,6 +49,8 @@ export default function AdminLogin() {
    } else {
     message.error("An unexpected error occurred");
    }
+  } finally {
+   setLoading(false);
   }
  };
 
@@ -76,6 +79,7 @@ export default function AdminLogin() {
    display: "flex",
    height: screens.sm ? "100vh" : "auto",
    padding: screens.md ? `${token.sizeXXL}px 0px` : "0px",
+   position: "relative",
   },
   text: {
    color: token.colorTextSecondary,
@@ -83,10 +87,28 @@ export default function AdminLogin() {
   title: {
    fontSize: screens.md ? token.fontSizeHeading2 : token.fontSizeHeading3,
   },
+  spinContainer: {
+   display: "flex",
+   justifyContent: "center",
+   alignItems: "center",
+   position: "absolute",
+   top: 0,
+   left: 0,
+   right: 0,
+   bottom: 0,
+   backgroundColor: "white",
+   opacity: 0.8,
+   zIndex: 1,
+  },
  };
 
  return (
   <section style={styles.section}>
+   {loading && (
+    <div style={styles.spinContainer}>
+     <Spin spinning size="large" />
+    </div>
+   )}
    <div style={styles.container}>
     <div style={styles.header}>
      <svg

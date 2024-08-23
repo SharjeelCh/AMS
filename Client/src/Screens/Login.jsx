@@ -1,8 +1,15 @@
 import React from "react";
-
-import { Button, Checkbox, Form, Grid, Input, theme, Typography } from "antd";
-import { message } from "antd";
-
+import {
+ Button,
+ Checkbox,
+ Form,
+ Grid,
+ Input,
+ Spin,
+ theme,
+ Typography,
+ message,
+} from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -16,14 +23,19 @@ export default function Login() {
  const { token } = useToken();
  const navigate = useNavigate();
  const screens = useBreakpoint();
- const { user, setUser } = useStore();
+ const { setUser } = useStore();
+ const [loading, setLoading] = React.useState(false);
 
  const onFinish = async (values) => {
+  setLoading(true);
   try {
-   const response = await axios.post(`https://ams-omega.vercel.app/api/users/Login/`, {
-    email: values.email,
-    password: values.password,
-   });
+   const response = await axios.post(
+    `https://ams-omega.vercel.app/api/users/Login/`,
+    {
+     email: values.email,
+     password: values.password,
+    }
+   );
    setUser({
     user_id: response.data.data._id,
     first_name: response.data.data.first_name,
@@ -40,6 +52,8 @@ export default function Login() {
    } else {
     message.error("An unexpected error occurred");
    }
+  } finally {
+   setLoading(false);
   }
  };
 
@@ -68,6 +82,7 @@ export default function Login() {
    display: "flex",
    height: screens.sm ? "100vh" : "auto",
    padding: screens.md ? `${token.sizeXXL}px 0px` : "0px",
+   position: "relative",
   },
   text: {
    color: token.colorTextSecondary,
@@ -75,10 +90,28 @@ export default function Login() {
   title: {
    fontSize: screens.md ? token.fontSizeHeading2 : token.fontSizeHeading3,
   },
+  spinContainer: {
+   display: "flex",
+   justifyContent: "center",
+   alignItems: "center",
+   position: "absolute",
+   top: 0,
+   left: 0,
+   right: 0,
+   bottom: 0,
+   backgroundColor: "white",
+   opacity: 0.8,
+   zIndex: 1,
+  },
  };
 
  return (
   <section style={styles.section}>
+   {loading && (
+    <div style={styles.spinContainer}>
+     <Spin spinning size="large" />
+    </div>
+   )}
    <div style={styles.container}>
     <div style={styles.header}>
      <svg
