@@ -13,8 +13,9 @@ app.use(express.json());
 
 const corsOptions = {
  origin: [
-  "http://localhost:5173", 
+  "http://localhost:5173",
   "https://ams-exvhbfycy-sharjeel-fida-chs-projects.vercel.app",
+  "https://ams-hjd2.vercel.app",
  ],
  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
  allowedHeaders: ["Content-Type", "Authorization"],
@@ -25,7 +26,6 @@ app.use(cors(corsOptions));
 app.use(
  "/api/users",
  (req, res, next) => {
-  
   next();
  },
  userRoutes
@@ -34,12 +34,11 @@ app.use(
 app.use(
  "/api/admin",
  (req, res, next) => {
-  
   next();
  },
  adminRoutes
 );
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+ console.log(`Server is running on port ${PORT}`);
 });
