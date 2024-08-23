@@ -5,7 +5,7 @@ import React from "react";
 
 const CustomHeader = () => {
  const { user } = useStore();
- const name = user.isAdmin ? user.name : "Admin";
+ const name = user?.isAdmin ? user.name : user?.last_name || "Guest";
  return (
   <Flex align="center" justify="space-between">
    <></>

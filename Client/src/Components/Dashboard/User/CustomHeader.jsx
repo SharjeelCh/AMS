@@ -6,7 +6,7 @@ import useStore from "../../../createStore";
 
 const CustomHeader = () => {
  const { user } = useStore();
- const name = user.isAdmin ? "User" : user.last_name;
+ const name = user?.isAdmin ? "User" : user?.last_name || "Guest";
  return (
   <Flex align="center" justify="space-between">
    <></>
