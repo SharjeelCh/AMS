@@ -10,7 +10,7 @@ const UserProfile = () => {
  const first_name = user?.first_name || "Guest";
  const last_name = user?.last_name || "Guest";
  const email = user?.email || "Guest";
- const profile_image = user?.profileImage || "Guest";
+ const profile_image = user?.profile_image || "Guest";
 
  const [imageUrl, setImageUrl] = useState(user ? profile_image : null);
  const [isEditing, setIsEditing] = useState(false);
