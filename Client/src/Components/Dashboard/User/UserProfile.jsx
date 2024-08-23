@@ -7,7 +7,10 @@ import axios from "axios";
 const UserProfile = () => {
  const { user, setUser } = useStore();
 
- const { first_name, last_name, email, profile_image } = user;
+ const first_name = user?.first_name || "Guest";
+ const last_name = user?.last_name || "Guest";
+ const email = user?.email || "Guest";
+ const profile_image = user?.profile_image || "Guest";
 
  const [imageUrl, setImageUrl] = useState(user ? profile_image : null);
  const [isEditing, setIsEditing] = useState(false);
