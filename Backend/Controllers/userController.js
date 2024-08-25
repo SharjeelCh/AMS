@@ -29,7 +29,7 @@ const sendToken = asyncHandler(async (req, res) => {
   from: process.env.USER_EMAIL,
   to: email,
   subject: "Verification Token",
-  html: `Press <a href="http://localhost:${process.env.PORT}/verify/${token}">here</a> to verify your account`,
+  html: `Press <a href="https://ams-theta-tawny.vercel.app/api/users/verify/${token}">here</a> to verify your account`,
  };
 
  transporter.sendMail(info, (err, data) => {
