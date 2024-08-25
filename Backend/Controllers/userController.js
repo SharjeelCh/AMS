@@ -22,7 +22,7 @@ const sendToken = asyncHandler(async (req, res) => {
 
  await User.updateOne(
   { email },
-  { verificationToken: token, isVerified: true }
+  { verificationToken: token, isVerified: false }
  );
 
  var info = {
