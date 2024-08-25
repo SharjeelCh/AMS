@@ -76,7 +76,7 @@ const Signup = asyncHandler(async (req, res) => {
   email,
   password,
   verificationToken: undefined,
-  isVerified: true,
+  isVerified: false,
  });
  await newUser.save();
  sendToken(req, res);
